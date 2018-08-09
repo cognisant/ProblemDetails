@@ -7,10 +7,8 @@ namespace CR.ProblemDetails
     using System;
     using System.Net;
 
-    /// <summary>
-    /// A description of a problem which occurred while fulfilling a HTTP request.
-    /// </summary>
-    public struct HttpProblemDetails
+    /// <inheritdoc cref="IHttpProblemDetails" />
+    public struct HttpProblemDetails : IHttpProblemDetails
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="HttpProblemDetails"/> struct, which represents a problem which occurred while fulfilling a HTTP request.
@@ -37,35 +35,19 @@ namespace CR.ProblemDetails
             Status = status;
         }
 
-        /// <summary>
-        /// Gets the <see cref="HttpStatusCode"/> which describes the problem which occurred while fulfilling a HTTP request.
-        /// </summary>
+        /// <inheritdoc />
         public HttpStatusCode Status { get; }
 
-        /// <summary>
-        /// Gets a human-readable explanation specific to this occurrence of the problem.
-        /// </summary>
+        /// <inheritdoc />
         public string Detail { get; }
 
-        /// <summary>
-        /// Gets a short, human-readable summary of the problem type. It should not change from occurrence to occurrence of the
-        /// problem, except for purposes of localization(e.g., using proactive content negotiation).
-        /// </summary>
+        /// <inheritdoc />
         public string Title { get; }
 
-        /// <summary>
-        /// Gets a <see cref="Uri"/> reference that identifies the specific occurrence of the problem.
-        /// It may or may not yield further information if dereferenced.
-        /// </summary>
+        /// <inheritdoc />
         public Uri Instance { get; }
 
-        /// <summary>
-        /// Gets a <see cref="Uri"/> reference that identifies the problem type. This specification encourages that, when dereferenced,
-        /// it provide human-readable documentation for the problem type (e.g., using HTML).
-        /// </summary>
-        /// <remarks>
-        /// When this member is not present, its value is assumed to be "about:blank".
-        /// </remarks>
+        /// <inheritdoc />
         public Uri Type { get; }
     }
 }
