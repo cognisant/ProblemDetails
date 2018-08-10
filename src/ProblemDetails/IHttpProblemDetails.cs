@@ -5,7 +5,6 @@
 namespace CR.ProblemDetails
 {
     using System;
-    using System.Net;
 
     /// <summary>
     /// A description of a problem which occurred while fulfilling a HTTP request.
@@ -13,9 +12,12 @@ namespace CR.ProblemDetails
     public interface IHttpProblemDetails
     {
         /// <summary>
-        /// Gets the <see cref="HttpStatusCode"/> which describes the problem which occurred while fulfilling a HTTP request.
+        /// Gets the HTTP status code which describes the problem which occurred while fulfilling a HTTP request.
         /// </summary>
-        HttpStatusCode Status { get; }
+        /// <remarks>
+        /// If the provided status code is not supported by the consuming framework, it will default to InternalServerError.
+        /// </remarks>
+        int Status { get; }
 
         /// <summary>
         /// Gets a human-readable explanation specific to this occurrence of the problem.

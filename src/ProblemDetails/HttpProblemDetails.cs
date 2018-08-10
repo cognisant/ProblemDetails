@@ -5,7 +5,6 @@
 namespace CR.ProblemDetails
 {
     using System;
-    using System.Net;
 
     /// <inheritdoc cref="IHttpProblemDetails" />
     public struct HttpProblemDetails : IHttpProblemDetails
@@ -17,8 +16,8 @@ namespace CR.ProblemDetails
         /// <param name="instance">A <see cref="Uri"/> reference which identifies the specific occurrence of the problem.</param>
         /// <param name="title">A short, human-readable title for the problem (not specific to this instance).</param>
         /// <param name="detail">A human-readable explanation of the problem, specific to this instance of it.</param>
-        /// <param name="status">The <see cref="HttpStatusCode"/> associated with the <see cref="HttpProblemDetails"/>.</param>
-        public HttpProblemDetails(Uri type, Uri instance, string title, string detail, HttpStatusCode status)
+        /// <param name="status">The HTTP status code associated with the <see cref="HttpProblemDetails"/>.</param>
+        public HttpProblemDetails(Uri type, Uri instance, string title, string detail, int status)
         {
             Detail = string.IsNullOrWhiteSpace(detail)
                 ? throw new ArgumentException($"The {nameof(detail)} used to initialize a {nameof(HttpProblemDetails)} was null, empty or whitespace.", nameof(detail))
@@ -36,7 +35,7 @@ namespace CR.ProblemDetails
         }
 
         /// <inheritdoc />
-        public HttpStatusCode Status { get; }
+        public int Status { get; }
 
         /// <inheritdoc />
         public string Detail { get; }

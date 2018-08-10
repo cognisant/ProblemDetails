@@ -47,7 +47,7 @@ namespace CR.ProblemDetails
         /// </summary>
         /// <param name="problemDetails">The <see cref="IHttpProblemDetails"/> explaining what caused the <see cref="HttpProblemDetailsException"/> to be thrown.</param>
         public HttpProblemDetailsException(IHttpProblemDetails problemDetails) => ProblemDetails = problemDetails;
-#pragma warning restore SA1648 // inheritdoc should be used with inheriting class
+#pragma warning restore SA1648 // inheritdoc should be used with inheriting \class
 
         /// <summary>
         /// Gets the <see cref="IHttpProblemDetails"/> describing the issue which resulted in the <see cref="HttpProblemDetailsException"/> being thrown.
