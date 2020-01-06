@@ -1,8 +1,8 @@
-﻿// <copyright file="HttpProblemDetails.cs" company="Cognisant Research">
-// Copyright (c) Cognisant Research. All rights reserved.
+﻿// <copyright file="HttpProblemDetails.cs" company="Corsham Science">
+// Copyright (c) Corsham Science. All rights reserved.
 // </copyright>
 
-namespace CR.ProblemDetails
+namespace CorshamScience.ProblemDetails
 {
     using System;
 
